@@ -1,0 +1,9 @@
+data
+my_docs
+
+__pycache__
+
+# os/ide
+.venv
+.idea
+.DS_STORE

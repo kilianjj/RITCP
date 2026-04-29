@@ -1,0 +1,26 @@
+#db_scan:
+#    epsilon: 1.0
+#    min_samples: 20
+#    min_points: 1
+
+# for scaled eval dataset (scaled by factor 6, units in ft)
+db_scan:
+    epsilon: 0.25
+    min_samples: 20
+    min_points: 10 # post db-scan filter for how many points needed to keep a cluster
+
+outlier_filtering:
+  enabled: true
+  num_neighbors: 20
+  std_ratio: 1.5
+
+bbox:
+  type: "aa" # pca, aa, min
+
+classes:
+  include: ["car", "bus", "person", "bike", "animal"]
+  exclude: ["background"]
+
+runtime:
+  verbose: true
+  measure_latency: true

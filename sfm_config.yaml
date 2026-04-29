@@ -1,0 +1,31 @@
+sfm:
+  colmap: "colmap" # exe
+  batch_size: 2
+  use_gpu: false
+  gpu_idx: 0
+  matcher: "colmap" # right now kd-3d for custom 3d kd tree or colmap to just use exhaustive or vocab tree (specify below)
+  triangulator: "colmap" # colmap or custom
+
+feature_extraction:
+  sift_max_features: 4000
+  single_camera: false
+
+matching:
+  max_neighbors: 20
+  max_distance: 25
+  colmap_method: vocab  # vocab for vocab_tree_matcher, exhaustive for exhaustive_matcher
+
+verification:
+  enabled: false # only enable if using custom triangulation =>  refines matches but not necessary
+  max_num_trials: 5000
+  min_inlier_ratio: 0.2
+
+triangulation:
+  reprojection_error_thresh: 5
+
+detection:
+  detection_module: "detection.semantic_detection"
+  detection_config: "detection_config.yaml"
+
+logging: true
+debug: false # use this to run the segmentation & detection process synchronously
